@@ -21,7 +21,7 @@ class RequirementsController < ApplicationController
   private :set_requirement
 
   def requirement_params
-    params.require(:requirement).permit(:ingredient_id, :recipe_id, :quantity)
+    params.require(:requirement).permit(:ingredient_id, :meal_id, :quantity)
   end
   private :requirement_params
 end

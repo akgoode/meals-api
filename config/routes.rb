@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   resources :ingredients, except: [:new, :edit]
   resources :meals, except: [:new, :edit]
+  resources :requirements, only: [:create]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
