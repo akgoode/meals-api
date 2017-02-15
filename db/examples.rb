@@ -17,3 +17,24 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+# %w(Andy Steve Maura Dan Jackson Yana).each do |user|
+#   user_params = {
+#     email: user
+#   }
+#   next if User.exists? user_params
+#   User.create! user_params
+# end
+
+user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
+
+%w(meal1 meal2 meal3 meal4).each do |meal|
+  meal_params = {
+    name: meal,
+    ingredients: 'Eggs, cheese, bacon, bread',
+    instructions: 'Cook',
+    user_id: user1.id
+  }
+  next if Meal.exists? meal_params
+  Meal.create! meal_params
+end
