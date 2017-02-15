@@ -31,10 +31,19 @@ user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
 %w(meal1 meal2 meal3 meal4).each do |meal|
   meal_params = {
     name: meal,
-    ingredients: 'Eggs, cheese, bacon, bread',
+    ingredients: 'bacon, eggs, cheese, bread',
     instructions: 'Cook',
     user_id: user1.id
   }
   next if Meal.exists? meal_params
   Meal.create! meal_params
+end
+
+%w(eggs cheese bacon bread).each do |ingredient|
+  ingredient_params = {
+    name: ingredient,
+    unit: 'Pounds'
+  }
+  next if Ingredient.exists? ingredient_params
+  Ingredient.create! ingredient_params
 end
