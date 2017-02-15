@@ -9,8 +9,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "meal": {
       "name": "spaghetti and meatballs",
-      "ingredients": "spaghetti, meatballs, red sauce, parmesan",
-      "instructions": "boil water, cook meatballs, cook pasta, eat"
+      "instructions": "boil water, cook meatballs, cook pasta, eat",
+      "user_id": "'"${USER}"'"
     }
   }' # \
   # --header "Authorization: Token token=$TOKEN"
