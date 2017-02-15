@@ -31,7 +31,6 @@ user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
 %w(meal1 meal2 meal3 meal4).each do |meal|
   meal_params = {
     name: meal,
-    ingredients: 'bacon, eggs, cheese, bread',
     instructions: 'Cook',
     user_id: user1.id
   }
@@ -46,4 +45,17 @@ end
   }
   next if Ingredient.exists? ingredient_params
   Ingredient.create! ingredient_params
+end
+
+Requirement.transaction do
+  20.times do
+    requirement_params = {
+      ingredient: Ingredient.all.sample,
+      meal: Meal.all.sample,
+      quantity: 15
+    }
+
+    next if Requirement.exists? requirement_params
+    Requirement.create!(requirement_params)
+  end
 end
