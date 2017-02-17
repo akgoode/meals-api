@@ -38,15 +38,6 @@ user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
   Meal.create! meal_params
 end
 
-%w(eggs cheese bacon bread).each do |ingredient|
-  ingredient_params = {
-    name: ingredient,
-    unit: 'Pounds'
-  }
-  next if Ingredient.exists? ingredient_params
-  Ingredient.create! ingredient_params
-end
-
 Requirement.transaction do
   20.times do
     requirement_params = {
