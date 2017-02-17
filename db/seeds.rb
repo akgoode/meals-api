@@ -8,3 +8,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('data', 'ingredients.csv'))
+
+csv = CSV.parse(csv_text, headers: true)
+csv.each do |row|
+  Ingredient.create!(row.to_hash)
+end
