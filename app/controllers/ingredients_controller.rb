@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class IngredientsController < ApplicationController
+class IngredientsController < OpenReadController
   before_action :set_ingredient, only: [:show, :update, :destroy]
 
   # GET /ingredients

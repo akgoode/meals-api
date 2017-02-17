@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class RequirementsController < ApplicationController
+class RequirementsController < ProtectedController
   before_action :set_requirement, only: [:destroy]
   def create
     @requirement = Requirement.new(requirement_params)
