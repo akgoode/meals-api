@@ -5,4 +5,8 @@ class MealSerializer < ActiveModel::Serializer
   def ingredients
     object.ingredients.pluck(:name)
   end
+
+  # def editable
+  #   scope == object.user
+  # end
 end

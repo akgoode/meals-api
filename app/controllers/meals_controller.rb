@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class MealsController < ApplicationController
+class MealsController < OpenReadController
   before_action :set_meal, only: [:show, :update, :destroy]
 
   # GET /meals
@@ -41,7 +41,7 @@ class MealsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meal
-    @meal = Meal.find(params[:id])
+    @meal = current_user.meals.find(params[:id])
   end
   private :set_meal
 

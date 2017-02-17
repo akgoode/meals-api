@@ -3,4 +3,7 @@ class Meal < ApplicationRecord
   belongs_to :user
   has_many :ingredients, through: :requirements
   has_many :requirements
+
+  validates :name, presence: true
+  validates :instructions, presence: true
 end

@@ -5,14 +5,13 @@ URL_PATH="/meals"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
-  --header "Content-Type: application/json" \
+  --header "Content-Type: application/json Authorization: Token token=$TOKEN" \
   --data '{
     "meal": {
-      "name": "spaghetti and meatballs",
-      "instructions": "boil water, cook meatballs, cook pasta, eat",
+      "name": "'"${NAME}"'",
+      "instructions": "'"${INSTRUCTIONS}"'",
       "user_id": "'"${USER}"'"
     }
   }' # \
-  # --header "Authorization: Token token=$TOKEN"
 
 echo
