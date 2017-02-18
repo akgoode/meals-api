@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class MealSerializer < ActiveModel::Serializer
-  attributes :id, :name, :ingredients, :instructions
+  attributes :id, :name, :instructions
 
   def ingredients
     object.ingredients.pluck(:name)
