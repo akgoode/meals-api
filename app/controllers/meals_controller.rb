@@ -16,7 +16,7 @@ class MealsController < OpenReadController
 
   # POST /meals
   def create
-    @meal = Meal.new(meal_params)
+    @meal = current_user.meals.build(meal_params)
 
     if @meal.save
       render json: @meal, status: :created
@@ -47,7 +47,7 @@ class MealsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def meal_params
-    params.require(:meal).permit(:name, :instructions, :user_id)
+    params.require(:meal).permit(:name, :instructions)
   end
-  private :meal_params
+  private :create_meal_params
 end

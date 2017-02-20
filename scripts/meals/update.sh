@@ -5,12 +5,11 @@ URL_PATH="/meals/${ID}"
 curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
-  --header "Content-Type: application/json" \
+  --header "Content-Type: application/json Authorization: Token token=$TOKEN" \
   --data '{
     "meal": {
       "name": "'"${NAME}"'",
-      "ingredients": "'"${diagnosis}"'",
-      "instructions": "'"${BORN_ON}"'"
+      "instructions": "'"${INSTRUCTIONS}"'"
     }
   }' # \
   # --header "Authorization: Token token=$TOKEN"
