@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 class MealSerializer < ActiveModel::Serializer
-  attributes :id, :name, :ingredients, :instructions
-
-  def ingredients
-    object.ingredients.pluck(:name)
-  end
+  attributes :id, :name, :ingredients, :instructions, :requirements
 
   # def editable
   #   scope == object.user
