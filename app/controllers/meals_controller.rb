@@ -49,5 +49,5 @@ class MealsController < OpenReadController
   def meal_params
     params.require(:meal).permit(:name, :instructions)
   end
-  private :create_meal_params
+  private :meal_params
 end
