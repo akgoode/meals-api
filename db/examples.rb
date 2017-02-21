@@ -43,7 +43,7 @@ Requirement.transaction do
     requirement_params = {
       ingredient: Ingredient.all.sample,
       meal: Meal.all.sample,
-      quantity: 15
+      quantity: rand(10)
     }
 
     next if Requirement.exists? requirement_params

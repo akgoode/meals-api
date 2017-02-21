@@ -41,7 +41,7 @@ class MealsController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meal
-    @meal = current_user.meals.find(params[:id])
+    @meal = current_user.find(params[:id])
   end
   private :set_meal
 
