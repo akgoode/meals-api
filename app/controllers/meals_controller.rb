@@ -4,7 +4,7 @@ class MealsController < OpenReadController
 
   # GET /meals
   def index
-    @meals = Meal.all
+    @meals = current_user.meals.all
 
     render json: @meals
   end
