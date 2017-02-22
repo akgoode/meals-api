@@ -26,27 +26,27 @@
 #   User.create! user_params
 # end
 
-user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
-
-%w(meal1 meal2 meal3 meal4).each do |meal|
-  meal_params = {
-    name: meal,
-    instructions: 'Cook',
-    user_id: user1.id
-  }
-  next if Meal.exists? meal_params
-  Meal.create! meal_params
-end
-
-Requirement.transaction do
-  20.times do
-    requirement_params = {
-      ingredient: Ingredient.all.sample,
-      meal: Meal.all.sample,
-      quantity: rand(10)
-    }
-
-    next if Requirement.exists? requirement_params
-    Requirement.create!(requirement_params)
-  end
-end
+# user1 = User.create!(email: 'hi', password: 'hi', password_confirmation: 'hi')
+#
+# %w(meal1 meal2 meal3 meal4).each do |meal|
+#   meal_params = {
+#     name: meal,
+#     instructions: 'Cook',
+#     user_id: user1.id
+#   }
+#   next if Meal.exists? meal_params
+#   Meal.create! meal_params
+# end
+#
+# Requirement.transaction do
+#   20.times do
+#     requirement_params = {
+#       ingredient: Ingredient.all.sample,
+#       meal: Meal.all.sample,
+#       quantity: rand(10)
+#     }
+#
+#     next if Requirement.exists? requirement_params
+#     Requirement.create!(requirement_params)
+#   end
+# end
