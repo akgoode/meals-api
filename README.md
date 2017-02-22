@@ -200,22 +200,43 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Meals
+### Meals
 
 | Verb   | URI Pattern            | Controller#Action    |
 |--------|------------------------|----------------------|
 | POST   | `/meals`               | `meals#create`       |
-| GET    | `/meals/`              | `meals#index`        |
+| GET    | `/meals`               | `meals#index`        |
 | GET    | `/meals/:id`           | `meals#show`         |
 | DELETE | `/meals/:id`           | `meals#destroy`      |
 | PATCH  | `/meals/:id`           | `meals#update`       |
-| POST   | `/ingredients/`        | `ingredients#create` |
-| GET    | `/ingredients/`        | `ingredients#index`  |
+
+#### POST /meals
+
+#### GET /meals
+
+#### GET /meals/:id
+
+#### DELETE /meals/:id
+
+#### PATCH /meals/:id
+
+
+### Ingredients
+
+| Verb   | URI Pattern            | Controller#Action    |
+|--------|------------------------|----------------------|
+| POST   | `/ingredients`         | `ingredients#create` |
+| GET    | `/ingredients`         | `ingredients#index`  |
+
+#### POST /ingredients
+
+#### GET /ingredients
+
+
+### Requirements
+
+| Verb   | URI Pattern            | Controller#Action    |
+|--------|------------------------|----------------------|
 | POST   | `/requirements/`       | `requirements#create`|
 
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+#### POST /requirements
