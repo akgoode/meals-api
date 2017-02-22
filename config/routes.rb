@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :ingredients, only: [:create, :index]
+  resources :ingredients, only: [:create, :index, :show]
   resources :meals, except: [:new, :edit]
   resources :requirements, only: [:create]
   post '/sign-up' => 'users#signup'
