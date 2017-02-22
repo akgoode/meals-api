@@ -225,14 +225,92 @@ Content-Type: application/json; charset=utf-8
 
 #### POST /meals
 
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/meals"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "meal": {
+      "name": "'"${NAME}"'",
+      "instructions": "'"${INSTRUCTIONS}"'"
+    }
+  }' # \
+
+echo
+```
+
 #### GET /meals
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/meals"
+curl "${API}${URL_PATH}" \
+--header "Authorization: Token token=$TOKEN" \
+  --include \
+  --request GET
+
+echo
+```
 
 #### GET /meals/:id
 
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/meals/${ID}"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request GET \
+  --header "Authorization: Token token=$TOKEN"
+
+echo
+```
+
 #### DELETE /meals/:id
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/meals/${ID}"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request DELETE \
+  --header "Authorization: Token token=$TOKEN"
+
+echo
+```
 
 #### PATCH /meals/:id
 
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/meals/${ID}"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request PATCH \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "meal": {
+      "name": "'"${NAME}"'",
+      "instructions": "'"${INSTRUCTIONS}"'"
+    }
+  }'
+
+echo
+```
 
 ### Ingredients
 
@@ -240,11 +318,57 @@ Content-Type: application/json; charset=utf-8
 |--------|------------------------|----------------------|
 | POST   | `/ingredients`         | `ingredients#create` |
 | GET    | `/ingredients`         | `ingredients#index`  |
+| GET    | `/ingredients/:id`     | `ingredients#show`   |
+
 
 #### POST /ingredients
 
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/ingredients"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "ingredient": {
+      "name": "'"${NAME}"'",
+      "unit": "'"${UNIT}"'"
+    }
+  }'
+
+echo
+```
+
 #### GET /ingredients
 
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/ingredients"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request GET
+echo
+```
+
+#### GET /ingredients/:id
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/ingredients/${ID}"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request GET
+
+echo
+```
 
 ### Requirements
 
@@ -253,3 +377,24 @@ Content-Type: application/json; charset=utf-8
 | POST   | `/requirements/`       | `requirements#create`|
 
 #### POST /requirements
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/requirements"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "requirement": {
+      "ingredient_id": "'"${INGREDIENT}"'",
+      "meal_id": "'"${MEAL}"'",
+      "quantity": "'"${QUANTITY}"'"
+    }
+  }'
+
+echo
+```

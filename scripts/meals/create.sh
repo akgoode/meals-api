@@ -5,12 +5,12 @@ URL_PATH="/meals"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
-  --header "Content-Type: application/json Authorization: Token token=$TOKEN" \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
   --data '{
     "meal": {
       "name": "'"${NAME}"'",
-      "instructions": "'"${INSTRUCTIONS}"'",
-      "user_id": "'"${USER}"'"
+      "instructions": "'"${INSTRUCTIONS}"'"
     }
   }' # \
 
