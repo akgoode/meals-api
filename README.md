@@ -1,6 +1,19 @@
-Meals API
+# Meals API
 
-Andrew Goode
+## Andrew Goode
+
+### Link to front end
+
+Meal Tracker
+'http://akgoode.github.io/mealtracker'
+
+### Overview
+
+This is the back end of my first full-stack project.  This site contains all the data necessary for a front-end client to create a recipe book for each user's data.  It contains four tables: users, meals, ingredients, and requirements.  Users have many meals, and meals have many ingredients through requirements.  Ingredients also have many meals through requirements.  Users own their own meals and can create, view, and delete meals at their leisure.  Users do not own ingredients, but they can add ingredients to the database which can then be included in meals by all other users.
+
+Meals have names, instructions, ids, and ingredients through requirements.
+Ingredients have names, units, ids, and meals through requirements.
+Each requirement has one meal and one ingredient, and the quantity of that ingredient to be used in the meal.  When a user deletes a meal, the associated requirements also get destroyed.
 
 ### Authentication
 
