@@ -5,7 +5,8 @@
 ### Link to front end
 
 Meal Tracker
-'http://akgoode.github.io/mealtracker'
+  - URL to project: http://akgoode.github.io/mealtracker
+  - Repository URL: https://github.com/akgoode/mealtracker
 
 ### Overview
 
