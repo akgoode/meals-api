@@ -226,6 +226,7 @@ Content-Type: application/json; charset=utf-8
 
 #### POST /meals
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -250,8 +251,22 @@ echo
 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="chicken and rice" INSTRUCTIONS="COOK" sh scripts/meals/create.sh
 ```
 
+Response:
+```sh
+{
+  "meal":
+    {
+      "id":32,
+      "name":"chicken and rice",
+      "instructions":"COOK",
+      "ings":[]
+    }
+  }
+```
+
 #### GET /meals
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -269,8 +284,28 @@ echo
 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/index.sh
 ```
 
+Response:
+```sh
+{
+  "meals":
+    {
+      "id":32,
+      "name":"chicken and rice",
+      "instructions":"COOK",
+      "ings":[]
+    }
+    {
+      "id":33,
+      "name":"other delicious stuff",
+      "instructions":"COOK",
+      "ings":[]
+    }
+  }
+```
+
 #### GET /meals/:id
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -288,8 +323,22 @@ echo
 ID=32 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/show.sh
 ```
 
+Response:
+```sh
+{
+  "meal":
+  {
+    "id":45,
+    "name":"chicken and rice",
+    "instructions":"COOK",
+    "ings":[]
+  }
+}
+```
+
 #### DELETE /meals/:id
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -307,8 +356,14 @@ echo
 ID=44 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/destroy.sh
 ```
 
+Response:
+```sh
+  Response: 204 No Content
+```
+
 #### PATCH /meals/:id
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -333,6 +388,11 @@ echo
 ID=36 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="new meal" INSTRUCTIONS="BLAH BLAH" sh scripts/meals/update.sh
 ```
 
+Response:
+```sh
+204 No Content
+```
+
 ### Ingredients
 
 | Verb   | URI Pattern            | Controller#Action    |
@@ -344,6 +404,7 @@ ID=36 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6
 
 #### POST /ingredients
 
+Request:
 ```sh
 #!/bin/bash
 
@@ -368,7 +429,20 @@ echo
 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="steak" UNIT="pounds" sh scripts/ingredients/create.sh
 ```
 
+Response:
+```sh
+{
+  "ingredient":
+    {
+      "id":108,
+      "name":"steak",
+      "unit":"pounds"
+    }
+  }
+```
+
 #### GET /ingredients
+Request:
 
 ```sh
 #!/bin/bash
@@ -385,7 +459,25 @@ echo
 sh scripts/ingredients/index.sh
 ```
 
+Response:
+```sh
+{
+  "ingredients":
+    {
+      "id":108,
+      "name":"steak",
+      "unit":"pounds"
+    }
+    {
+      "id":109,
+      "name":"chicken",
+      "unit":"pounds"
+    }
+  }
+```
+
 #### GET /ingredients/:id
+Request:
 
 ```sh
 #!/bin/bash
@@ -403,6 +495,18 @@ echo
 ID=5 sh scripts/ingredients/show.sh
 ```
 
+Response:
+```sh
+{
+  "ingredient":
+    {
+      "id":108,
+      "name":"steak",
+      "unit":"pounds"
+    }
+  }
+```
+
 ### Requirements
 
 | Verb   | URI Pattern            | Controller#Action    |
@@ -410,6 +514,7 @@ ID=5 sh scripts/ingredients/show.sh
 | POST   | `/requirements/`       | `requirements#create`|
 
 #### POST /requirements
+Request:
 
 ```sh
 #!/bin/bash
@@ -434,4 +539,16 @@ echo
 
 ```sh
 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" INGREDIENT="76" MEAL="35" QUANTITY=3 sh scripts/requirements/create.sh
+```
+
+Response:
+```sh
+{
+  "requirement": {
+    "id":29
+    "ingredient_id": 108,
+    "meal_id": 45,
+    "quantity": 10
+  }
+}
 ```
