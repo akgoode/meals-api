@@ -245,6 +245,10 @@ curl "${API}${URL_PATH}" \
 echo
 ```
 
+```sh
+TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="chicken and rice" INSTRUCTIONS="COOK" sh scripts/meals/create.sh
+```
+
 #### GET /meals
 
 ```sh
@@ -258,6 +262,10 @@ curl "${API}${URL_PATH}" \
   --request GET
 
 echo
+```
+
+```sh
+TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/index.sh
 ```
 
 #### GET /meals/:id
@@ -275,6 +283,10 @@ curl "${API}${URL_PATH}" \
 echo
 ```
 
+```sh
+ID=32 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/show.sh
+```
+
 #### DELETE /meals/:id
 
 ```sh
@@ -288,6 +300,10 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN"
 
 echo
+```
+
+```sh
+ID=44 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" sh scripts/meals/destroy.sh
 ```
 
 #### PATCH /meals/:id
@@ -310,6 +326,10 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
+```
+
+```sh
+ID=36 TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="new meal" INSTRUCTIONS="BLAH BLAH" sh scripts/meals/update.sh
 ```
 
 ### Ingredients
@@ -343,6 +363,10 @@ curl "${API}${URL_PATH}" \
 echo
 ```
 
+```sh
+TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" NAME="steak" UNIT="pounds" sh scripts/ingredients/create.sh
+```
+
 #### GET /ingredients
 
 ```sh
@@ -354,6 +378,10 @@ curl "${API}${URL_PATH}" \
   --include \
   --request GET
 echo
+```
+
+```sh
+sh scripts/ingredients/index.sh
 ```
 
 #### GET /ingredients/:id
@@ -368,6 +396,10 @@ curl "${API}${URL_PATH}" \
   --request GET
 
 echo
+```
+
+```sh
+ID=5 sh scripts/ingredients/show.sh
 ```
 
 ### Requirements
@@ -397,4 +429,8 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
+```
+
+```sh
+TOKEN="BAhJIiU1YWE5N2U2YThiZGQ0NjZlNWQ0OTc0MjcyNDQyMzdhYwY6BkVG--62ad500d6ca5fe3f081694426730b48f0bb07a1d" INGREDIENT="76" MEAL="35" QUANTITY=3 sh scripts/requirements/create.sh
 ```
