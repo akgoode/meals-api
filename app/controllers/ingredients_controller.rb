@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class IngredientsController < OpenReadController
-  before_action :set_ingredient, only: [:show, :update, :destroy]
+  before_action :set_ingredient, only: [:show]
 
   # GET /ingredients
   def index
@@ -23,20 +23,6 @@ class IngredientsController < OpenReadController
     else
       render json: @ingredient.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /ingredients/1
-  def update
-    if @ingredient.update(ingredient_params)
-      head :no_content
-    else
-      render json: @ingredient.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /ingredients/1
-  def destroy
-    @ingredient.destroy
   end
 
   # Use callbacks to share common setup or constraints between actions.

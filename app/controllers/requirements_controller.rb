@@ -21,7 +21,7 @@ class RequirementsController < OpenReadController
   end
 
   def set_requirement
-    @requirement = Requirement.find(params[:id])
+    @requirement = current_user.meals.find(params[:id])
   end
   private :set_requirement
 
