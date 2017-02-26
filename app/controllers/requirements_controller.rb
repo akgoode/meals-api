@@ -2,10 +2,6 @@
 class RequirementsController < OpenReadController
   before_action :set_requirement, only: [:destroy]
 
-  def index
-    @requirements = Requirement.all
-  end
-
   def create
     @requirement = Requirement.new(requirement_params)
 
